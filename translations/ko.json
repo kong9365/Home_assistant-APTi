@@ -1,0 +1,39 @@
+{
+    "title": "아파트아이 (APT.i)",
+    "config": {
+        "step": {
+            "user": {
+                "title": "APT.i 설정",
+                "description": "아파트 이름을 입력하세요. 설정 완료 후 Webhook URL이 생성됩니다.\n\nGitHub Actions에서 이 Webhook URL로 데이터를 전송하면 센서가 업데이트됩니다.",
+                "data": {
+                    "apt_name": "아파트 이름"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "이미 설정된 항목입니다."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "maint_total": {
+                "name": "납부할 금액"
+            },
+            "maint_deadline": {
+                "name": "납부마감일"
+            },
+            "maint_item": {
+                "name": "{category}"
+            },
+            "energy_category": {
+                "name": "{category} 요금"
+            },
+            "energy_type": {
+                "name": "{category} 상세"
+            },
+            "payment_history": {
+                "name": "최근 납부"
+            }
+        }
+    }
+}

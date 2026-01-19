@@ -1,0 +1,39 @@
+{
+    "title": "APT.i",
+    "config": {
+        "step": {
+            "user": {
+                "title": "APT.i Setup",
+                "description": "Enter your apartment name. A Webhook URL will be generated after setup.\n\nData sent to this Webhook URL from GitHub Actions will update the sensors.",
+                "data": {
+                    "apt_name": "Apartment Name"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Already configured."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "maint_total": {
+                "name": "Amount Due"
+            },
+            "maint_deadline": {
+                "name": "Payment Deadline"
+            },
+            "maint_item": {
+                "name": "{category}"
+            },
+            "energy_category": {
+                "name": "{category} Cost"
+            },
+            "energy_type": {
+                "name": "{category} Details"
+            },
+            "payment_history": {
+                "name": "Recent Payment"
+            }
+        }
+    }
+}

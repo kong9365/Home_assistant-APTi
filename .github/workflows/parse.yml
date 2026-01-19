@@ -1,0 +1,35 @@
+name: APT.i 관리비 파싱
+
+on:
+  # 매일 한국시간 오전 9시 (UTC 0시)
+  schedule:
+    - cron: '0 0 * * *'
+
+  # 수동 실행
+  workflow_dispatch:
+
+jobs:
+  parse-apti:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 의존성 설치
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: APT.i 파싱 실행
+        env:
+          APTI_USER_ID: ${{ secrets.APTI_USER_ID }}
+          APTI_PASSWORD: ${{ secrets.APTI_PASSWORD }}
+          HA_WEBHOOK_URL: ${{ secrets.HA_WEBHOOK_URL }}
+        run: python apti_parser.py

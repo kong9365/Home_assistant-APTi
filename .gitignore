@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 디버그 파일
+*.html
+*.json
+*.jpg
+*.txt
+!requirements.txt
+!strings.json
+!translations/*.json
+!icons/*.json
+
+# 테스트 파일
+test_*.py
+debug_*.py
+analyze_*.py
+*_test.py
+*_debug.py
+
+# 개발 문서 (README.md와 SETUP_GUIDE.md 제외)
+*.md
+!README.md
+!SETUP_GUIDE.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 임시 파일
+*.tmp
+*.log
+*.bak
